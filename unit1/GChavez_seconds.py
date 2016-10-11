@@ -9,4 +9,4 @@ hours = b / 60
 seconds_string = str(x)
 minutes_string= str(a)
 hours_string = str(hours)
-print("{} hours {} minutes {} seconds".format(hours_string,minutes_string,seconds_string))
+print("{} seconds is equal to {} hours {} minutes {} seconds".format(time,hours_string,minutes_string,seconds_string))
