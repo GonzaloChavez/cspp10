@@ -1,25 +1,24 @@
 import random
-
 rounds = input("How nany rounds do you want to play: ")
-p1_choice = input("Do you choose rock, paper or scissors:  ")
 
 def p1_move():
+    p1_choice = input("Do you choose rock, paper or scissors:  ")
     if p1_choice == 'rock':
-        return 'r'
-    elif p1_choice == 'p':
-        return 'p'
+        return 'P1 chose rock'
+    elif p1_choice == 'paper':
+        return 'P1 chose paper'
     else:
-        return 's'
+        return 'P1 chose scissors'
 
 def comp_move():
-    comp = random.randint("rock", "paper", "scissors")
-    if comp == 'rock':
-        return 'r'
-    elif comp == 'paper':
-        return 'p'
-    else:
-        return 's'
+    comp = random.randint(1,3)
+    if comp == 1:
+        return "The computer chose rock"
+    elif comp == 2:
+        return "The computer chose paper"
+    elif comp == 3:
+        return "The computer chose scissors"
 
-print("P1 chose {}".format(p1_choice))
-print("The computer has chose {}".format(comp_move()))
+print(p1_move())
+print(comp_move())
     
