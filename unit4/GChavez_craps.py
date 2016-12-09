@@ -23,16 +23,24 @@ def roll2dice():
     print("Dice 1: {} Dice 2: {}".format(dice1, dice2))
     return dice_sum
 
-def first_roll_result(dice_sum):
-    if dice_sum == 2 or dice_sum == 3 or dice_sum == 12:
-        print("lose")
+def first_roll(dice_sum):
+    if (dice_sum == 2) or (dice_sum == 3) or (dice_sum == 12):
+        return 'lose'
     
-    elif dice_sum == 7 or dice_sum ==  11:
-        print("win")
+    elif (dice_sum == 7) or (dice_sum ==  11):
+        return 'win'
     
-    elif dice_sum != 2 or dice_sum != 3 or dice_sum != 7 or dice_sum != 11 or dice_sum != 12:
-        print(dice_sum)
+    else:
+        return dice_sum
+
+def get_first_roll(bet, dice_sum):
+        if (dice_sum == 2) or (dice_sum == 3) or (dice_sum == 12):
+            bank_amount = bet - bet
     
+        elif (dice_sum == 7) or (dice_sum ==  11):
+            bank_amount = bet + bet 
+
+
 get_bet(bank_amount)
 roll2dice()
-first_roll_result(roll2dice)
+first_roll(roll2dice)
