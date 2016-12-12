@@ -36,11 +36,14 @@ def first_roll(dice_sum):
 def get_first_roll(bet, dice_sum):
         if (dice_sum == 2) or (dice_sum == 3) or (dice_sum == 12):
             bank_amount = bet - bet
+            print("You Lost! Bank Amount: {}".format(bank_amount))
     
         elif (dice_sum == 7) or (dice_sum ==  11):
-            bank_amount = bet + bet 
+            bank_amount = bet + bet
+            print("You Won! Bank Amount: {}".format(bank_amount)) 
+
+
 
 
 get_bet(bank_amount)
 roll2dice()
-first_roll(roll2dice)
