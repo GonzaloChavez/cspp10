@@ -33,15 +33,31 @@ def first_roll(dice_sum):
     else:
         return dice_sum
 
-def get_first_roll(bet, dice_sum):
-        if (dice_sum == 2) or (dice_sum == 3) or (dice_sum == 12):
-            bank_amount = bet - bet
-            print("You Lost! Bank Amount: {}".format(bank_amount))
-    
-        elif (dice_sum == 7) or (dice_sum ==  11):
-            bank_amount = bet + bet
-            print("You Won! Bank Amount: {}".format(bank_amount)) 
+#function name: update_bank
+#purpose: change bank amount based on whether the player won or not
+#arguments:
+#   bet - what the player bet
+#   bank_amount - how much the player has in their bank
+#   result - what happened in the round
+#returns: the updated amount in the bank
 
+def update_bank(bet, bank_amount, result):
+    if result == 'lose':
+        bank_amount = bet - bet
+        print("You Lost! Bank Amount: {}".format(bank_amount))
+
+    elif result == 'win':
+        bank_amount = bet + bet
+        print("You Won! Bank Amount: {}".format(bank_amount)) 
+    return bank_amount
+        
+def second_roll(dice_sum):
+    dice1 = random.randint(1,6)
+    dice2 = random.randint(1,6)
+    new_dice_sum
+    if dice_sum ==
+    
+    
 
 
 
