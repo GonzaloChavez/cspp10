@@ -52,10 +52,13 @@ def update_bank(bet, bank_amount, result):
     return bank_amount
         
 def second_roll(dice_sum):
-    dice1 = random.randint(1,6)
-    dice2 = random.randint(1,6)
-    new_dice_sum
-    if dice_sum ==
+    new_dice1 = random.randint(1,6)
+    new_dice2 = random.randint(1,6)
+    new_dice_sum = new_dice1 + new_dice2 
+    if new_dice_sum != 7 or  new_dice_sum != dice_sum:
+        while new_dice_sum != 7 or  new_dice_sum != dice_sum:
+            print("Dice 1: {} Dice 2: {}".format(new_dice1, new_dice2))
+        
     
     
 
