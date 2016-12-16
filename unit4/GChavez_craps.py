@@ -25,9 +25,11 @@ def get_roll2dice():
 
 def get_first_roll(dice_sum):
     if (dice_sum == 2) or (dice_sum == 3) or (dice_sum == 12):
+        print("You Lose!")
         return 'lose'
     
     elif (dice_sum == 7) or (dice_sum ==  11):
+        print("You Won!")
         return 'win'
     
     else:
@@ -65,10 +67,15 @@ def get_second_roll(dice_sum):
         
 def craps():
     bank_amount = 100
-    
     bet = get_bet(bank_amount)
-    dice_sum = get_roll2dice
-    first_roll = get_first_roll(dice_sum)
-    update_bank = get_update_bank(bet, bank_amount, result)
-    second_roll = get_second_roll(dice_sum)
+    roll2dice = get_roll2dice()
+    dice_sum = roll2dice
 
+    
+    
+    
+    
+
+
+
+craps()
