@@ -71,11 +71,12 @@ def craps():
     roll2dice = get_roll2dice()
     dice_sum = roll2dice
 
+    while bank_amount > 0:
+        if dice_sum == 'lose':
+            print("You Lose!")
+            bank_amount = bet-bet
+        
     
     
-    
-    
-
-
 
 craps()
