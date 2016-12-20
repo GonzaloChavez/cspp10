@@ -70,13 +70,24 @@ def craps():
     bet = get_bet(bank_amount)
     roll2dice = get_roll2dice()
     dice_sum = roll2dice
+    firstroll = get_first_roll(dice_sum)
+    secondroll = get_second_roll(dice_sum)
 
     while bank_amount > 0:
         if dice_sum == 'lose':
-            print("You Lose!")
             bank_amount = bet-bet
+            print("You Lose! Bank Amount: {}".format(bank_amount))
+        elif dice_sum == 'win':
+            bank_amount = bet + bet
+            print("You Win! Bank Amount: {}".format(bank_amount))
+        elif dice_sum == dice_sum:
+            break
         
+    print("Your Point Nunber: {}".format(dice_sum))
     
+#if new_dice_sum == dice_sum:
+        
+            
     
 
 craps()
