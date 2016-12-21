@@ -43,27 +43,19 @@ def get_first_roll(dice_sum):
 #   result - what happened in the round
 #returns: the updated amount in the bank
 
-def get_update_bank(bet, bank_amount, result):
-    if result == 'lose':
-        bank_amount = bet - bet
-        print("You Lost! Bank Amount: {}".format(bank_amount))
 
-    elif result == 'win':
-        bank_amount = bet + bet
-        print("You Won! Bank Amount: {}".format(bank_amount)) 
-    return bank_amount
         
 def get_second_roll(dice_sum):
-    new_dice1 = random.randint(1,6)
-    new_dice2 = random.randint(1,6)
-    new_dice_sum = new_dice1 + new_dice2 
-    if new_dice_sum != 7 or  new_dice_sum != dice_sum:
-        while new_dice_sum != 7 or  new_dice_sum != dice_sum:
-            print("Dice 1: {} Dice 2: {}\nDice Sum: {}".format(new_dice1, new_dice2, new_dice_sum))
-            break
+    while True:
+        new_dice1 = random.randint(1,6)
+        new_dice2 = random.randint(1,6)
+        new_dice_sum = new_dice1 + new_dice2 
+        if new_dice_sum != 7 or  new_dice_sum != dice_sum:
+            while new_dice_sum != 7 or  new_dice_sum != dice_sum:
+                return("Dice 1: {} Dice 2: {}\nDice Sum: {}".format(new_dice1, new_dice2, new_dice_sum))
         
-    elif new_dice_sum == 7 or new_dice_sum == dice_sum:
-        print("You Win")
+        elif new_dice_sum == 7 or new_dice_sum == dice_sum:
+            return("You Win")
         
 def craps():
     bank_amount = 100
@@ -71,21 +63,24 @@ def craps():
     roll2dice = get_roll2dice()
     dice_sum = roll2dice
     firstroll = get_first_roll(dice_sum)
-    secondroll = get_second_roll(dice_sum)
+    new_dice_sum = get_second_roll(dice_sum)
+
 
     while bank_amount > 0:
         if dice_sum == 'lose':
-            bank_amount = bet-bet
+            bank_amount = bank_amount - bet
             print("You Lose! Bank Amount: {}".format(bank_amount))
         elif dice_sum == 'win':
-            bank_amount = bet + bet
+            bank_amount = bank_amount + bet
             print("You Win! Bank Amount: {}".format(bank_amount))
         elif dice_sum == dice_sum:
             break
-        
+    
     print("Your Point Nunber: {}".format(dice_sum))
     
-#if new_dice_sum == dice_sum:
+    if new_dice_sum == dice_sum:
+        bank_amount = bank_amount + bet
+        print("You Win! Bank Amount: {}".format(bank_amount))
         
             
     
