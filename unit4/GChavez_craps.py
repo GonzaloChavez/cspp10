@@ -1,6 +1,6 @@
 import random
 bank_amount = 100
-print("Welcome to Craps, you have $100 in your bank")
+print("Welcome to Craps: You have $100 in your bank")
 
 def get_bet(bank_amount):
     bet = int(input("How much do you want to bet: "))
@@ -30,16 +30,6 @@ def get_roll2dice():
     else:
         return dice_sum
 
-
-
-#function name: update_bank
-#purpose: change bank amount based on whether the player won or not
-#arguments:
-#   bet - what the player bet
-#   bank_amount - how much the player has in their bank
-#   result - what happened in the round
-#returns: the updated amount in the bank
-
 def get_update_bank(bet, bank_amount, result):
     if result == 'lose':
         bank_amount = bet - bet
@@ -56,15 +46,12 @@ def get_second_roll(dice_sum):
         new_dice2 = random.randint(1,6)
         new_dice_sum = new_dice1 + new_dice2 
         if new_dice_sum != 7 or  new_dice_sum != dice_sum:
-            while new_dice_sum != 7 or  new_dice_sum != dice_sum:
                 return("Dice 1: {} Dice 2: {}\nDice Sum: {}".format(new_dice1, new_dice2, new_dice_sum))
-        
-        elif new_dice_sum == 7 or new_dice_sum == dice_sum:
-            return("You Win")
+        elif  new_dice_sum != dice_sum:
+            
         
 def craps():
     bank_amount = 100
-
 
     while bank_amount > 0:
         bet = get_bet(bank_amount)
@@ -79,13 +66,11 @@ def craps():
             bank_amount = bank_amount + bet
             print("You Win! Bank Amount: {}".format(bank_amount))
         elif dice_sum == dice_sum:
-            break
-    
-    print("Your Point Nunber: {}".format(dice_sum))
-    
-    if new_dice_sum == dice_sum:
-        bank_amount = bank_amount + bet
-        print("You Win! Bank Amount: {}".format(bank_amount))
+            print("Your Point Nunber: {}".format(dice_sum))
+
+            if new_dice_sum == dice_sum:
+                bank_amount = bank_amount + bet
+                print("You Win! Bank Amount: {}".format(bank_amount))
         
             
     
