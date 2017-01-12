@@ -44,10 +44,13 @@ def get_second_roll(dice_sum):
     while True:
         new_dice1 = random.randint(1,6)
         new_dice2 = random.randint(1,6)
-        new_dice_sum = new_dice1 + new_dice2 
-        if new_dice_sum != 7 or  new_dice_sum != dice_sum:
-                return("Dice 1: {} Dice 2: {}\nDice Sum: {}".format(new_dice1, new_dice2, new_dice_sum))
-        elif  new_dice_sum != dice_sum:
+        new_dice_sum = new_dice1 + new_dice2
+        point_number = new_dice_sum
+        print ("Rolled 2 dice: {} and {}, {} in total.".format(new_dice1, new_dice2, new_dice_sum))
+        if point_number == dice_sum:
+            return "win"
+        elif point_number == 7:
+            return "lose"
             
         
 def craps():
@@ -55,9 +58,8 @@ def craps():
 
     while bank_amount > 0:
         bet = get_bet(bank_amount)
-        roll2dice = get_roll2dice()
-        dice_sum = roll2dice
-        new_dice_sum = get_second_roll(dice_sum)
+        dice_sum = get_roll2dice()
+
         
         if dice_sum == 'lose':
             bank_amount = bank_amount - bet
@@ -65,12 +67,17 @@ def craps():
         elif dice_sum == 'win':
             bank_amount = bank_amount + bet
             print("You Win! Bank Amount: {}".format(bank_amount))
-        elif dice_sum == dice_sum:
-            print("Your Point Nunber: {}".format(dice_sum))
+        else:
+            point_number = get_second_roll(dice_sum)
 
-            if new_dice_sum == dice_sum:
+            if point_number == 'win':
                 bank_amount = bank_amount + bet
                 print("You Win! Bank Amount: {}".format(bank_amount))
+            
+            elif point_number == 'lose':
+                bank_amount = bank_amount - bet
+                print("You Lose! Bank Amount: {}".format(bank_amount))
+       
         
             
     
