@@ -2,13 +2,11 @@
 num = []
 while True:
     user_input = input("Number? Sum? Clear? Print? Length? Exit? ")
-    num.insert(0, user_input)
 
-    #if user_input == "Sum":
-        
+    if user_input == "Sum":
+        print(sum(num))
     
-
-    if user_input == "Clear":
+    elif user_input == "Clear":
         num = []
         print(num)
 
@@ -17,7 +15,11 @@ while True:
         
     elif user_input == "Length":
         for index in range(len(num)):
-	        print("{} at index {}".format(num[index],index))
+	        print("{} At Index {}".format(num[index],index))
 
     elif user_input == "Exit":
-        print(num)
+        print("Done")
+        break
+        
+    else:
+        num.insert(0, int(user_input))
