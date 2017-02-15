@@ -1,37 +1,60 @@
 import random
 print("Welcome To The Game High Or Low\n The Object Is To Guess Correctly 10 Times To Win The Game")
-num1 = random.randint(1,15)
-print(num1)
-user_input = input("High Or Low? ")
+def get_user_input():
+    user_input = input("High or Low? ")
+    while True:
+        if user_input != 'High' and user_input != 'Low':
+            print("No!")
+            user_input = input("High or Low? ")
+        elif user_input == 'High': 
+            return('High')
+        elif user_input == 'Low':
+            return('Low')
 
-while user_input == 'High':
-    num2 = random.randint(1,15)
-    print(num2)
-    if num2 > num1:
-        print("Good Job")
-        user_input = input("High Or Low? ")
-    elif num2 < num1:
-        print("Sorry, Better Luck Next Time")
-        break
-    elif num2 == num1:
-        print("It's The Same, Retry")
-        num2 = random.randint(1,15)
-        print(num2)
-        user_input = input("High Or Low? ")
-while user_input == 'Low':
-    num2 = random.randint(1,15)
-    print(num2)
-    if num2 < num1:
-        print("Good Job")
-        user_input = input("High Or Low? ")
-    elif num2 > num1:
-        print("Sorry, Better Luck Next Time")
-        break
-    elif num2 == num1:
-        print("It's The Same, Retry")
-        num2 = random.randint(1,15)
-        print(num2)
-        user_input = input("High Or Low? ")
+        
+def HiLo(get_user_input):
+    user_input = get_user_input()
+    while True:
+        if user_input == 'High':
+            comp_num = random.randint(1,15)
+            print(comp_num)
+            player_num = random.randint(1,15)
+            print(player_num)
+            if player_num > comp_num:
+                print("Good Job!")
+                user_input = input("High or Low? ") 
+            elif player_num < comp_num:
+                print("Sorry, Better Luck Next Time!")
+                break
+            elif player_num == comp_num:
+                print("They're The Same, Try Again")
+                comp_num = random.randint(1,15)
+                print(comp_num)
+                player_num = random.randint(1,15)
+                print(player_num)
+                user_input = input("High or Low? ")
+        elif user_input == 'Low':
+            comp_num = random.randint(1,15)
+            print(comp_num)
+            player_num = random.randint(1,15)
+            print(player_num)
+            if player_num < comp_num:
+                print("Good Job!")
+                user_input = input("High or Low? ") 
+            elif player_num > comp_num:
+                print("Sorry, Better Luck Next Time!")
+                break
+            elif player_num == comp_num:
+                print("They're The Same, Try Again")
+                comp_num = random.randint(1,15)
+                print(comp_num)
+                player_num = random.randint(1,15)
+                print(player_num)
+                user_input = input("High or Low? ")
+        
+HiLo(get_user_input)
+    
+        
         
     
     
